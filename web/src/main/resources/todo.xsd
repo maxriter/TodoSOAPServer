@@ -1,0 +1,87 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://luxoft.com/soap"
+           targetNamespace="http://luxoft.com/soap" elementFormDefault="qualified">
+
+    <xs:element name="todoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="todo" type="tns:todo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTodoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="allTodo" type="tns:todo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addTodoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="todo" type="tns:todo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateTodoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="allTodo" type="tns:todo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="todo">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="todo" type="xs:string"/>
+            <xs:element name="dateTime" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="removeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addTodo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="todo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateTodo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="todo" type="tns:todo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="filterTodo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="todo" type="xs:string"/>
+                <xs:element name="dateFrom" type="xs:string"/>
+                <xs:element name="dateTo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="filterTodoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="filteredTodo" type="tns:todo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
